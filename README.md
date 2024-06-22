@@ -19,8 +19,8 @@
 ## GIỚI THIỆU MÔN HỌC
 <a name="gioithieumonhoc"></a>
 * **Tên môn học**: NHẬP MÔN THỊ GIÁC MÁY TÍNH - COMPUTER VISION
-* **Mã môn học**: CS114
-* **Mã lớp học**: CS114.O21
+* **Mã môn học**: CS231
+* **Mã lớp học**: CS231.O22
 * **Năm học**: 2023-2024 (HK2), 19/02/2024 - 08/06/2024
 
 ## GIẢNG VIÊN HƯỚNG DẪN
@@ -36,7 +36,7 @@
 
 ## ĐỒ ÁN MÔN HỌC
 <a name="doan"></a>
-Đếm số người trong ảnh.
+Đếm số người đi bộ trong ảnh.
 
 ## Cách dùng source code trên
 **Note**: Các file test và train chỉ sử dụng cho khả năng phân loại của mô hình, hiện nhóm chưa thực hiện việc đánh giá mô hình qua việc so sánh nhãn dự đoán và nhãn thực tế.
