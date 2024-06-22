@@ -37,3 +37,10 @@
 ## ĐỒ ÁN MÔN HỌC
 <a name="doan"></a>
 Đếm số người trong ảnh.
+
+## Cách dùng source code trên
+Chạy file demo.py để xem kết quả. Sau khi chạy file demo.py sẽ xuất hiện 1 cửa sổ để ta upload ảnh. Upload ảnh và xem kết quả. 
+
+## Kết quả sau khi chạy 
+
+
