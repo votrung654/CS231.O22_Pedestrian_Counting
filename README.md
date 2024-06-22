@@ -55,6 +55,15 @@ Nếu không muốn sử dụng tkinter, có thể sử dụng câu lệnh sau t
 ```
 python demo.py -i/--image <path to image> 
 ```
+Ví dụ:
+```
+python train_LR.py -i .\sample_image\FudanPed00054.png
+```
+hoặc
+```
+python train_LR.py --image .\sample_image\FudanPed00054.png
+```
+
 ## Kết quả
 <img src="https://i.imgur.com/jx2IdeK.png">
 <img src="https://i.imgur.com/CHTjeZD.png">
