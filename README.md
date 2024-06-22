@@ -40,6 +40,7 @@
 
 ## Cách dùng source code trên
 **Note**: Các file test và train chỉ sử dụng cho khả năng phân loại của mô hình, hiện nhóm chưa thực hiện việc đánh giá mô hình qua việc so sánh nhãn dự đoán và nhãn thực tế.
+
 Chạy file demo.py để xem kết quả. Sau khi chạy file demo.py sẽ xuất hiện 1 cửa sổ để ta upload ảnh. Upload ảnh và xem kết quả. Dưới đây là một số câu lệnh để cài đặt các thư việc cần thiết nếu chúng chưa được cài đặt:
 ```
 pip install opencv-python-headless
@@ -58,6 +59,7 @@ python demo.py -i/--image <path to image>
 <img src="https://i.imgur.com/jx2IdeK.png">
 <img src="https://i.imgur.com/CHTjeZD.png">
 Ảnh demo được lưu trong thư mục demo_output dưới định dạng jpg, tên cụ thể là output_image.jpg. Chúng em đã đính kèm 2 ảnh cho thấy kết quả khi chạy trên câu lệnh có đường dẫn ảnh trên terminal hoặc dùng tkinter thông qua việc run một cách thông thường.
+
 ## Training
 Code này sử dụng dataset [INRIA Person Dataset](http://pascal.inrialpes.fr/data/human/).
 
@@ -74,7 +76,7 @@ python train_SVM.py --pos INRIAPerson/train_64x128_H96/pos --neg INRIAPerson/tra
 
 Sau khi chạy xong, sẽ có 2 file  `pre-hard_negative_mining_SVM_model.pkl` and `after-hard_negative_mining_SVM_model`, lần lượt là file huấn luyện lần 1 và huấn luyện lần 2 (sử dụng kỹ thuật hard negatively mined)
 
-tương tự với file train_LR.py, run command sau:
+Tương tự với file train_LR.py, run command sau:
 ```
 python train_LR.py --pos <path to positive images> --neg <path to negative images>
 ```
