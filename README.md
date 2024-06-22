@@ -72,7 +72,7 @@ python train_LR.py --image .\sample_image\FudanPed00054.png
 ## Training
 Code này sử dụng dataset [INRIA Person Dataset](http://pascal.inrialpes.fr/data/human/).
 
-**Note**: Vì link chính thức không hoạt động vì một số lý do, đây là link thay thế: [link](https://drive.google.com/file/d/14GD_pBpBsprPiZlkmtXN_y5K72To16if/view?usp=sharing).
+**Note**: Vì link chính thức không hoạt động vì một số lý do, đây là link thay thế mà chúng em đã upload lên drive (vẫn là INRIA Person Dataset): [link](https://drive.google.com/file/d/1ZYLz0m3yHVvXl7OMF_Ee2yAxqd3jkTU1/view?usp=sharing).
 
 Để chạy file train_SVM.py, run command sau:
 ```
