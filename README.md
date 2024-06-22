@@ -39,35 +39,57 @@
 Đếm số người trong ảnh.
 
 ## Cách dùng source code trên
-Chạy file demo.py để xem kết quả. Sau khi chạy file demo.py sẽ xuất hiện 1 cửa sổ để ta upload ảnh. Upload ảnh và xem kết quả. 
-
+**Note**: Các file test và train chỉ sử dụng cho khả năng phân loại của mô hình, hiện nhóm chưa thực hiện việc đánh giá mô hình qua việc so sánh nhãn dự đoán và nhãn thực tế.
+Chạy file demo.py để xem kết quả. Sau khi chạy file demo.py sẽ xuất hiện 1 cửa sổ để ta upload ảnh. Upload ảnh và xem kết quả. Dưới đây là một số câu lệnh để cài đặt các thư việc cần thiết nếu chúng chưa được cài đặt:
+```
+pip install opencv-python-headless
+pip install numpy
+pip install scikit-image
+pip install joblib
+pip install argparse
+pip install pillow
+pip install tkinter
+```
+Nếu không muốn sử dụng tkinter, có thể sử dụng câu lệnh sau trong terminal:
+```
+python demo.py -i/--image <path to image> 
+```
 ## Kết quả
 <img src="https://i.imgur.com/jx2IdeK.png">
 <img src="https://i.imgur.com/CHTjeZD.png">
-
+Ảnh demo được lưu trong thư mục demo_output dưới định dạng jpg, tên cụ thể là output_image.jpg. Chúng em đã đính kèm 2 ảnh cho thấy kết quả khi chạy trên câu lệnh có đường dẫn ảnh trên terminal hoặc dùng tkinter thông qua việc run một cách thông thường.
 ## Training
-Code này train model sử dụng dataset [INRIA Person Dataset](http://pascal.inrialpes.fr/data/human/).
+Code này sử dụng dataset [INRIA Person Dataset](http://pascal.inrialpes.fr/data/human/).
 
-**Note**: Hoặc tải từ link sau: [link](https://drive.google.com/file/d/14GD_pBpBsprPiZlkmtXN_y5K72To16if/view?usp=sharing) nếu link trên không hoạt động.
+**Note**: Vì link chính thức không hoạt động vì một số lý do, đây là link thay thế: [link](https://drive.google.com/file/d/14GD_pBpBsprPiZlkmtXN_y5K72To16if/view?usp=sharing).
 
-Chạy đoạn command sau:
+Để chạy file train_SVM.py, run command sau:
 ```
-sudo sh fixpng.sh # Fix các file png bị lỗi trong dataset
-```
-**Note:** *Bước này là cần thiết để classifier được trained đúng cách*
-
-Để chạy file train, run command sau:
-```
-python train.py --pos <path to positive images> --neg <path to negative images>
+python train_SVM.py --pos <path to positive images> --neg <path to negative images>
 ```
 Ví dụ:
 ```
-python train.py --pos INRIAPerson/train_64x128_H96/pos --neg INRIAPerson/train_64x128_H96/neg
+python train_SVM.py --pos INRIAPerson/train_64x128_H96/pos --neg INRIAPerson/train_64x128_H96/neg
 ```
 
-Sau khi chạy xong, sẽ có 2 file  `person.pkl` and `person_final.pkl`, lần lượt là file huấn luyện lần 1 và huấn luyện lần 2 (sử dụng kỹ thuật hard negatively mined)
+Sau khi chạy xong, sẽ có 2 file  `pre-hard_negative_mining_SVM_model.pkl` and `after-hard_negative_mining_SVM_model`, lần lượt là file huấn luyện lần 1 và huấn luyện lần 2 (sử dụng kỹ thuật hard negatively mined)
+
+tương tự với file train_LR.py, run command sau:
+```
+python train_LR.py --pos <path to positive images> --neg <path to negative images>
+```
+Ví dụ:
+```
+python train_LR.py --pos INRIAPerson/train_64x128_H96/pos --neg INRIAPerson/train_64x128_H96/neg
+```
+
+Sau khi chạy xong, sẽ có 2 file  `pre-hard_negative_mining_LR_model.pkl` and `after-hard_negative_mining_LR_model`, lần lượt là file huấn luyện lần 1 và huấn luyện lần 2 (sử dụng kỹ thuật hard negatively mined)
 
 ## Testing
+Trước khi sử dụng code, cần chọn mô hình qua dòng lệnh sau trong file test.py (ở đây được lấy ví dụ từ model được lưu trong after-hard_negative_mining_SVM_model.pkl):
+```
+clf = joblib.load('after-hard_negative_mining_SVM_model.pkl')
+```
 Chạy đoạn command sau để test:
 ```
 python test.py --pos <path to positive images> --neg <path to negative images>
