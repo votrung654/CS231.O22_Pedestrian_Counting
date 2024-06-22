@@ -47,15 +47,16 @@ Chạy file demo.py để xem kết quả. Sau khi chạy file demo.py sẽ xu�
 
 ## Training
 Code này train model sử dụng dataset [INRIA Person Dataset](http://pascal.inrialpes.fr/data/human/).
-**Note**: Hoặc tải từ link sau: [link](https://drive.google.com/file/d/14GD_pBpBsprPiZlkmtXN_y5K72To16if/view?usp=sharing)
 
-Then just run:
+**Note**: Hoặc tải từ link sau: [link](https://drive.google.com/file/d/14GD_pBpBsprPiZlkmtXN_y5K72To16if/view?usp=sharing) nếu link trên không hoạt động.
+
+Chạy đoạn command sau:
 ```
 sudo sh fixpng.sh # Fix các file png bị lỗi trong dataset
 ```
 **Note:** *Bước này là cần thiết để classifier được trained đúng cách*
 
-Để chạy file train:
+Để chạy file train, run command sau:
 ```
 python train.py --pos <path to positive images> --neg <path to negative images>
 ```
@@ -67,7 +68,7 @@ python train.py --pos INRIAPerson/train_64x128_H96/pos --neg INRIAPerson/train_6
 Sau khi chạy xong, sẽ có 2 file  `person.pkl` and `person_final.pkl`, lần lượt là file huấn luyện lần 1 và huấn luyện lần 2 (sử dụng kỹ thuật hard negatively mined)
 
 ## Testing
-Chạy đoạn command sau:
+Chạy đoạn command sau để test:
 ```
 python test.py --pos <path to positive images> --neg <path to negative images>
 ```
